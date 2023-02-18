@@ -1,0 +1,180 @@
+:root {
+    --orange: #ff6600;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: white;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body.light,
+body.light * {
+    background-color: #fff;
+    color: black;
+}
+
+#banner {
+    position: sticky;
+    top: 0;
+    height: 60px;
+    background-color: var(--orange);
+    color: #eee;
+    font-family: monospace, arial;
+    font-size: 50px;
+    padding: 10px;
+    box-shadow: 0 0 15px var(--orange);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#banner button {
+    background-color: #ee6600;
+    color: white;
+    height: min-content;
+    padding: 6px;
+    border: 1px solid white;
+    border-radius: 3px;
+    transition: all 0.4s;
+}
+
+#banner button:hover {
+    background-color: #ef5204;
+    color: black;
+    border-color: black;
+}
+
+#homescreen {
+    margin: 5vw;
+    min-width: 250px;
+}
+
+#text {
+    position: relative;
+
+    padding: 15px;
+    border: var(--orange) 1px solid;
+
+    font-family: Arial;
+}
+
+a {
+    color: #40a0ee !important;
+    text-shadow: 0 0 3px #40a0ee;
+}
+
+#homescreen .warning {
+    position: relative;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: #f30;
+    border-radius: 15px;
+    font-size: 25px;
+    padding: 8px;
+    width: 80%;
+}
+
+#homescreen #buttons {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#homescreen #buttons div {
+    display: block;
+    text-align: center;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+#homescreen #buttons button {
+    background-color: var(--orange);
+    min-width: 80px;
+    font-size: larger;
+    color: inherit;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--orange);
+    transition: all 0.4s;
+}
+
+#homescreen #buttons button:hover {
+    background-color: #dd5503;
+    border-radius: 5px;
+    box-shadow: 0 0 15px var(--orange);
+}
+
+#textChatScreen {
+    min-width: 250px;
+    display: none;
+    height: 100%;
+    margin: 4vw;
+}
+
+#chat {
+    border-radius: 5px;
+    margin: 1px;
+    padding: 5px;
+    height: 350px;
+    border: 2px solid;
+    overflow-y: auto;
+}
+
+#interactSection {
+    display: flex;
+    justify-content: stretch;
+    gap: 5px;
+}
+
+#textChatScreen #interactSection * {
+    margin-top: 5px;
+    flex-grow: 1;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+#textChatScreen #interactSection *:hover,
+#textChatScreen #interactSection *:focus {
+    box-shadow: 0 0 4px var(--orange);
+}
+
+#textChatScreen #interactSection textarea {
+    background-color: #ff944d;
+    color: inherit;
+    font-size: 17px;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%;
+}
+
+#textChatScreen #interactSection textarea:disabled {
+    background-color: lightgrey;
+    cursor: not-allowed;
+}
+
+#textChatScreen #interactSection textarea:focus {
+    outline: none;
+}
+
+#textChatScreen #interactSection button {
+    font-size: 20px;
+    color: inherit;
+    background-color: var(--orange);
+    transition: all 0.4s;
+    width: 15%;
+}
+
+#textChatScreen #interactSection button:hover {
+    background-color: #dd5503;
+}

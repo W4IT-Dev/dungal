@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungal - Chat with strangers</title>
+    <link rel="icon" type="image/x-icon" href="/dungal (2).png">
+
+    <link rel="stylesheet" href="/styles/style.css">
+
+    <script src="/scripts/script.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script>
+        
+    </script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script> -->
+</head>
+
+<body>
+    <div id="banner">Dungal<button onclick="dark()">Dark/Light Mode</button>
+    </div>
+    <div id="homescreen" style="display: block;">
+        <div id="text">
+            <div class="info">
+                Dungal (dy ŋ ɡa l̩) is a new platform to meet new friends online.<br> When you use Dungal, you are
+                paired randomly with another person to talk one-on-one.
+                <br><br><br><br>
+                To help you stay safe, chats are anonymous unless you tell someone who you are (not recommended!), and
+                you can stop a chat at any time. <br>See our <a href="/tos.html">Terms of Service</a> and <a
+                    href="/guidelines.html">Community Guidelines</a> for more info about the do’s and don’ts in using
+                Dungal. Dungal video chat is moderated but no moderation is perfect. Users are solely responsible for
+                their behavior while using Dungal.
+                <div class="warning">Video is monitored. Keep it clean!
+                </div>
+            </div>
+        </div>
+        <div id="buttons">
+            <div>
+                Start chatting:
+                <br>
+                <button onclick="newTextChat();">Text</button>
+                <button onclick="newVideoChat();">Video</button>
+            </div>
+        </div>
+    </div>
+    <div id="textChatScreen">
+        <div id="chat">
+
+        </div>
+        <div id="interactSection">
+            <button>Stop</button>
+            <textarea id="textChatInput" placeholder="Enter a message"></textarea>
+            <button onclick="sendMessage();">Send</button>
+        </div>
+    </div>
+</body>
+
+</html>

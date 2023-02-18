@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "node": "^19.6.0",
+    "socket.io": "^4.6.0"
+  },
+  "name": "dungal",
+  "version": "1.0.0",
+  "description": "omegle copy",
+  "main": "/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "w4it dev",
+  "license": "ISC"
+}
