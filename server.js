@@ -77,7 +77,7 @@ io.on("connection", socket => {
     });
 
     // Handle the "connect to random user" message
-    socket.on("connect to random user", () => {
+    socket.on("textChatRequest", () => {
         // If the user already has a partner, do nothing
         if (socket.partner) {
             return io.to(socket.id).emit('already connected');

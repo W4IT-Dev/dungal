@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/styles/style.css">
 
     <script src="/scripts/script.js" defer></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
     <!-- <script>
         
     </script> -->
@@ -51,10 +51,13 @@
         </div>
         <div id="interactSection">
             <button>Stop</button>
-            <textarea id="textChatInput" placeholder="Enter a message"></textarea>
+            <textarea class="textChatInput" placeholder="Enter a message"></textarea>
             <button onclick="sendMessage();">Send</button>
         </div>
     </div>
+
+
+
 </body>
 
 </html>

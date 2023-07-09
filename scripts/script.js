@@ -2,8 +2,12 @@
 let homescreen = document.querySelector("#homescreen");
 let textChatScreen = document.querySelector("#textChatScreen");
 
-const socket = io();
+// Get the video element from HTML
+const videoElement = document.querySelector('video');
 
+// Access user's camera
+
+const socket = io();
 
 
 function dark() {
@@ -13,14 +17,14 @@ function dark() {
 function newTextChat() {
     document.title = 'Dungal'
     homescreen.style.display = "none";
-    socket.emit("connect to random user");
+    socket.emit("textChatRequest");
 
     textChatScreen.style.display = "block";
 }
 
-document.addEventListener('keydown', e => {
-    if (document.activeElement.id === 'textChatInput' && !e.shiftKey && e.key === 'Enter') sendMessage();
-})
+function newVideoChat() {
+}
+
 
 function sendMessage() {
     if (!document.querySelector('textarea').value || /^\s+$/.test(document.querySelector('textarea').value)) return
@@ -34,6 +38,9 @@ function sendMessage() {
     caht.innerHTML += `<span style="color: blue";>You:</span> ${safeHtml}<br>`;
     document.querySelector('textarea').value = '';
 }
+document.addEventListener('keydown', e => {
+    if (document.activeElement.classList.contains('textChatInput') && !e.shiftKey && e.key === 'Enter') e.preventDefault(), sendMessage();
+})
 
 // Store the current user's ID
 let currentUserId = null;
@@ -51,21 +58,26 @@ socket.on("disconnect", () => {
 });
 
 socket.on("waiting for user", () => {
-    document.querySelector('#textChatInput').disabled = true;
+    document.querySelector('#textChatScreen .textChatInput').disabled = true;
+    document.querySelector('#videoChatScreen .textChatInput').disabled = true;
+
     document.querySelector('#chat').innerHTML = 'Waiting for somone to connect...';
 
 })
 
 // Handle the "partner connected" event
 socket.on("partner connected", () => {
-    document.querySelector('#textChatInput').disabled = false;
+    document.querySelector('#textChatScreen .textChatInput').disabled = false;
+    document.querySelector('#videoChatScreen .textChatInput').disabled = false;
+
     document.querySelector('#chat').innerHTML = 'You are now connected to a stranger.<br><br>';
 
 });
 
 // Handle the "partner disconnected" event
 socket.on("partner disconnected", () => {
-    document.querySelector('#textChatInput').disabled = true;
+    document.querySelector('#textChatScreen .textChatInput').disabled = true;
+    document.querySelector('#videoChatScreen .textChatInput').disabled = true;
 
     document.querySelector('#chat').innerHTML += 'Your partner disconneted<br><br><button id="newChat"">New Chat</button>';
     document.querySelector('#newChat').addEventListener('click', () => {
@@ -74,7 +86,7 @@ socket.on("partner disconnected", () => {
 });
 
 socket.on('message', function (msg) {
-    // if (document.visibilityState === 'hidden') document.title = 'NEW MESSAGE - Dungal'
+    if (document.visibilityState === 'hidden') document.title = 'NEW MESSAGE - Dungal'
     console.log('Received message: ' + msg);
     const userInput = msg;
     const encodedInput = document.createElement('div');
@@ -84,3 +96,7 @@ socket.on('message', function (msg) {
     var caht = document.getElementById('chat');
     caht.innerHTML += `<span style="color: red";>Stranger:</span> ${safeHtml}<br>`;
 });
+
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState == "visible") return document.title = 'Dungal'
+})

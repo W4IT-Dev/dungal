@@ -31,6 +31,7 @@ body.light * {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 
 #banner button {
@@ -115,7 +116,8 @@ a {
     box-shadow: 0 0 15px var(--orange);
 }
 
-#textChatScreen {
+#textChatScreen,
+#videoChatScreen {
     min-width: 250px;
     display: none;
     height: 100%;
@@ -129,6 +131,8 @@ a {
     height: 350px;
     border: 2px solid;
     overflow-y: auto;
+    overflow-x: hidden;
+    line-break: anywhere;
 }
 
 #interactSection {
@@ -146,7 +150,7 @@ a {
 
 #textChatScreen #interactSection *:hover,
 #textChatScreen #interactSection *:focus {
-    box-shadow: 0 0 4px var(--orange);
+    box-shadow: 0 0 7px var(--orange);
 }
 
 #textChatScreen #interactSection textarea {
@@ -177,4 +181,9 @@ a {
 
 #textChatScreen #interactSection button:hover {
     background-color: #dd5503;
+}
+
+#videoChatScreen video {
+    height: 200px;
+
 }
